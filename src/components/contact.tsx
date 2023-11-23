@@ -14,39 +14,6 @@ const Contact = () => {
         </div>
         <Row data-aos='fade-up' data-aos-delay={100}>
           <Col lg={6}>
-            <Row>
-              <Col md={12}>
-                <div className='info-box bg-white'>
-                  <i className='bx bx-map' />
-                  <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
-                </div>
-              </Col>
-              <Col md={6}>
-                <div className='info-box mt-4 bg-white'>
-                  <i className='bx bx-envelope' />
-                  <h3>Email Us</h3>
-                  <p>
-                    info@example.com
-                    <br />
-                    contact@example.com
-                  </p>
-                </div>
-              </Col>
-              <Col md={6}>
-                <div className='info-box mt-4 bg-white'>
-                  <i className='bx bx-phone-call' />
-                  <h3>Call Us</h3>
-                  <p>
-                    +1 5589 55488 55
-                    <br />
-                    +1 6678 254445 41
-                  </p>
-                </div>
-              </Col>
-            </Row>
-          </Col>
-          <Col lg={6}>
             <Form className='php-email-form bg-white'>
               <Row>
                 <Col className=' form-group'>

@@ -11,10 +11,10 @@ import { setError } from '../../../utils/error';
 type FormValues = {
   name: string;
   image: string;
+  pandabuy_url: string;
   category: string;
   brand: string;
   price: number;
-  description: string;
 };
 const ProductUpdate = () => {
   const { products } = useAppSelector((state) => state.productFilter);
@@ -25,10 +25,10 @@ const ProductUpdate = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required(),
     image: Yup.string().required(),
+    pandabuy_url: Yup.string().required(),
     category: Yup.string().required(),
     brand: Yup.string().required(),
     price: Yup.number().required(),
-    description: Yup.string().required(),
   });
   console.log(product);
   const {
@@ -82,6 +82,18 @@ const ProductUpdate = () => {
                   <p className='invalid-feedback'>{errors.image?.message}</p>
                 </Form.Group>
                 <Form.Group>
+                  <Form.Label>PandaBuy URL</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='doe'
+                    {...register('pandabuy_url', {
+                      value: product?.pandabuy_url,
+                    })}
+                    className={errors.pandabuy_url?.message && 'is-invalid'}
+                  />
+                  <p className='invalid-feedback'>{errors.pandabuy_url?.message}</p>
+                </Form.Group>
+                <Form.Group>
                   <Form.Label>Brand</Form.Label>
                   <Form.Control
                     type='text'
@@ -117,23 +129,8 @@ const ProductUpdate = () => {
                   />
                   <p className='invalid-feedback'>{errors.price?.message}</p>
                 </Form.Group>
-                <Form.Group>
-                  <Form.Label>Description</Form.Label>
-                  <Form.Control
-                    as={'textarea'}
-                    rows={3}
-                    placeholder='description'
-                    {...register('description', {
-                      value: product?.description,
-                    })}
-                    className={errors.description?.message && 'is-invalid'}
-                  />
-                  <p className='invalid-feedback'>
-                    {errors.description?.message}
-                  </p>
-                </Form.Group>
                 <Button type='submit' className='mt-3 w-full text-white'>
-                  Ajouter
+                  Invia
                 </Button>
               </Form>
             </Card.Body>

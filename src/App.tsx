@@ -93,7 +93,7 @@ const App = () => {
           <Route path='product-edit/:id' element={<ProductUpdate />} />
         </Route>
 
-        <Route path='/contact' element={<Contact />} />
+        <Route path='/seggestions' element={<Contact />} />
       </Routes>
       <Toaster position='top-center' reverseOrder={false} />
     </Router>

@@ -3,19 +3,21 @@ import { Image } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <div className='container d-md-flex py-4'>
-      <div className='me-md-auto text-center text-md-start'>
+    <div className='container d-md-flex py-4 '>
+      <div className='me-md-auto text-center text-md-start mt-4 mb-4'>
         <div className='copyright'>
           © Copyright{' '}
           <strong>
-            <span>Type Shop</span>
+            <span>W2C.SPACE</span>
           </strong>
           . All Rights Reserved
         </div>
         <div className='credits'>
-          Designed by <a href='#'>Type Shop</a>
+          Designed by <a href='#'>W2C.SPACE</a>
         </div>
       </div>
+      
+      {/*
       <div className='social-links text-center text-md-end pt-3 pt-md-0'>
         <a href='#' className='twitter'>
           <i className='bx bxl-twitter' />
@@ -33,6 +35,7 @@ const Footer = () => {
           <i className='bx bxl-linkedin' />
         </a>
       </div>
+  */}
     </div>
   );
 };

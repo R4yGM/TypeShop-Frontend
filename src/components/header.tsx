@@ -1,14 +1,38 @@
+import { useEffect, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../redux';
-import { reset } from '../redux/cart/cart-slice';
+import { Size, reset } from '../redux/cart/cart-slice';
 import { userLogout } from '../redux/users/login-slice';
+import Marquee from "react-fast-marquee";
 
 const Header = () => {
   const { userInfo } = useAppSelector((state) => state.login);
-  const { cartItems } = useAppSelector((state) => state.cart);
+  const [CartSize, setCartSize] = useState();
+  //const { cartItems } = useAppSelector((state) => state.cart);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+  const reloadCartSize = async () => {
+    if (userInfo){
+    try {
+      const resultAction = await dispatch(Size());
+      if (resultAction.payload) {
+        const items = resultAction.payload;
+        setCartSize(items?.length);
+      } else {
+        console.log("L'azione è stata respinta o rifiutata");
+      }
+    } catch (error) {
+      console.error("Errore durante la chiamata:", error);
+    }
+  };
+  };
+  reloadCartSize()
+}, [dispatch]);
 
   const onLogout = () => {
     dispatch(userLogout());
@@ -19,60 +43,129 @@ const Header = () => {
   return (
     <>
       <nav
-        className='navbar navbar-expand-lg bg-dark navbar-light h-12 d-none d-lg-block'
+        className='navbar text-light navbar-expand-lg navbar-light h-12 d-none d-lg-block w-full' style={{backgroundColor:"#191919"}}
         id='templatemo_nav_top'
       >
-        <div className='container text-light'>
-          <div className='w-full d-flex justify-content-between align-items-center'>
-            <div>
-              <i className='fa text-sm  fa-envelope mx-2'></i>
-              <a
-                className='navbar-sm-brand text-light text-sm text-decoration-none'
-                href='mailto:info@company.com'
-              >
-                typeshop@me.com
-              </a>
-              <i className='fa text-sm  fa-phone mx-2'></i>
-              <a
-                className='navbar-sm-brand text-sm  text-light text-decoration-none'
-                href='tel:010-020-0340'
-              >
-                06 76 56 48 93
-              </a>
+        
+
+
+            <Marquee >
+            <div className="marque_wrapper">
+              <span style={{marginLeft:"8rem"}}><svg className="me-1"width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg>Register on pandabuy         
+          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+            <FaExternalLinkAlt
+              
+              size={20}
+              className='icons__cart me-0  text-white p-1 cursor-pointer'
+            />
+            here
+          </a>
+        for $100 discount!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg></span>
+                </div>
+                <div className="marque_wrapper">
+        <span style={{marginLeft:"9.5rem"}}><svg className="me-1"width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg>Register on pandabuy         
+          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+            <FaExternalLinkAlt
+              
+              size={20}
+              className='icons__cart me-0  text-white p-1 cursor-pointer'
+            />
+            here
+          </a>
+        for $100 discount!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg></span>
+
+</div>
+<div className="marque_wrapper">
+        <span style={{marginLeft:"9.5rem"}} ><svg className="me-1"width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg>Register on pandabuy         
+          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+            <FaExternalLinkAlt
+              
+              size={20}
+              className='icons__cart me-0  text-white p-1 cursor-pointer'
+            />
+            here
+          </a>
+        for $100 discount!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg></span>
             </div>
-            <div>
-              <a
-                className='text-light'
-                href='https://fb.com'
-                target='_blank'
-                rel='sponsored'
-              >
-                <i className='fab text-sm  fa-facebook-f fa-sm fa-fw me-2'></i>
-              </a>
-              <a
-                className='text-light'
-                href='https://www.instagram.com/'
-                target='_blank'
-              >
-                <i className='fab text-sm  fa-instagram fa-sm fa-fw me-2'></i>
-              </a>
-              <a
-                className='text-light'
-                href='https://twitter.com/'
-                target='_blank'
-              >
-                <i className='fab text-sm fa-twitter fa-sm fa-fw me-2'></i>
-              </a>
-              <a
-                className='text-light'
-                href='https://www.linkedin.com/'
-                target='_blank'
-              >
-                <i className='fab text-sm fa-linkedin fa-sm fa-fw'></i>
-              </a>
+
+            <div className="marque_wrapper">
+        <span style={{marginLeft:"9.5rem"}} ><svg className="me-1"width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg>Register on pandabuy         
+          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+            <FaExternalLinkAlt
+              
+              size={20}
+              className='icons__cart me-0  text-white p-1 cursor-pointer'
+            />
+            here
+          </a>
+        for $100 discount!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+                        <image
+                          xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
+                          className="emoji"
+                          width="15"
+                          height="15"
+                        />
+                        <title>💸</title>
+                      </svg></span>
             </div>
-          </div>
-        </div>
+            </Marquee>
+        
       </nav>
 
       <Navbar
@@ -86,8 +179,9 @@ const Header = () => {
           {/* Logo */}
           <Navbar.Brand as={NavLink} to='/'>
             <img
-              src='/LogoMakr-6Tit9e.png'
-              className='avatar rounded me-lg-10'
+              style={{ objectFit :'cover', width: '40%', height: 'auto', maxWidth: '40%', maxHeight: '290px' }}
+              src='/src/w2c_navbar.png'
+              className='avatar rounded me-lg-20'
               alt='...'
             />
           </Navbar.Brand>
@@ -96,42 +190,49 @@ const Header = () => {
           {/* Collapse */}
           <Navbar.Collapse id='responsive-navbar-nav'>
             {/* Nav */}
-            <div className='navbar-nav me-lg-auto'>
+            <div className='navbar-nav me-lg-auto' >
               <Nav.Item
                 as={NavLink}
-                className=' nav-link active'
+                className=' nav-link'
                 to='/'
                 aria-current='page'
               >
                 <span>Home</span>
               </Nav.Item>
               <Nav.Item as={NavLink} className=' nav-link' to='/home'>
-                <span>Product</span>
+                <span>Prodotti</span>
               </Nav.Item>
 
-              <Nav.Item as={NavLink} className=' nav-link' to='/contact'>
-                <span>Contact</span>
+              <Nav.Item as={NavLink} className=' nav-link' to='/seggestions'>
+                <span>Suggerimenti</span>
               </Nav.Item>
             </div>
             {/* Right navigation */}
 
             <div className='d-flex align-items-center'>
               <div className='d-flex align-items-center'>
+                {/* 
                 <Link className='nav-link' to='/home'>
                   <i className='fa fa-fw fa-search text-dark me-2'></i>
                 </Link>
-                <Link
+                */}
+                {!userInfo ? (
+                  <></>
+                ) : (
+                  <Link
                   className='nav-icon position-relative text-decoration-none'
                   to='/cart'
                 >
-                  <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 '></i>
+                  <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 ' style={{color:"black"}}></i>
                   <span
-                    style={{ backgroundColor: '#e03a3c' }}
+                    style={{ backgroundColor: 'black' }}
                     className='position-absolute top-0 left-100 translate-middle badge rounded-pill  text-white'
                   >
-                    {cartItems.length}
+                    {CartSize}
                   </span>
                 </Link>
+                )}
+
               </div>
               {!userInfo ? (
                 <>
@@ -149,7 +250,7 @@ const Header = () => {
                     <Nav.Link
                       as={NavLink}
                       to='/register'
-                      style={{ backgroundColor: '#e03a3c' }}
+                      style={{backgroundColor:"#16192c"}}
                       className='btn btn-sm text-white  ms-xs-3 '
                     >
                       Register

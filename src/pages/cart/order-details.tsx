@@ -47,7 +47,7 @@ const OrderDetails = () => {
   };
 
   useEffect(() => {
-    dispatch(getOrderById(id));
+    //dispatch(getOrderById(id));
   }, [dispatch, id]);
 
   return (

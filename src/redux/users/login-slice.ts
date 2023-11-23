@@ -34,7 +34,7 @@ export const userLogin = createAsyncThunk(
     try {
       const res = await publicAxios.post('/users/login', user);
       if (res.data) {
-        toast.success(`Bienvenue 👏 ${res.data.name}`);
+        toast.success(`Benvenuto! 👋 ${res.data.name}`);
         return res.data;
       }
     } catch (error: any) {

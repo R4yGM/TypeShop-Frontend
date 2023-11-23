@@ -1,4 +1,5 @@
 import { Button, Form } from 'react-bootstrap';
+import { FaSpinner } from 'react-icons/fa';
 import ModalContainer from '../UI/modal-container';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -19,20 +20,22 @@ type FormValues = {
   name: string;
   image: string;
   category: string;
+  pandabuy_url: string;
   brand: string;
   price: number;
-  description: string;
 };
 
 const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required(),
     category: Yup.string().required(),
+    pandabuy_url: Yup.string().required(),
     brand: Yup.string().required(),
     price: Yup.number().required(),
-    description: Yup.string().required(),
   });
   const [image, setImage] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -44,18 +47,27 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
-
+  
       let formData = new FormData();
-
+  
       formData.append('image', file);
-
+  
+      setLoading(true); // Imposta lo stato di caricamento su true
+  
       authAxios.post('/uploads/image', formData).then((res) => {
-        if (res.data) {
-          setImage(`${baseUrl}${res.data}`);
+        if (res.data && res.data.url) {
+          const imageUrl = `${res.data.url}`;
+          setImage(imageUrl);
         }
+      }).catch((error) => {
+        console.log("FRONTEND : product-modal")
+        console.log(error)
+      }).finally(() => {
+        setLoading(false); // Alla fine della richiesta, imposta lo stato di caricamento su false
       });
     }
   };
+  
 
   const onSubmit = (data: FormValues) => {
     authAxios
@@ -90,6 +102,20 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
             onChange={onChange}
           />
         </Form.Group>
+        {loading ? (
+  <div className="loaderIcon">Icona di caricamento...<FaSpinner/></div>
+) : (  <div></div> )}
+
+        <Form.Group>
+          <Form.Label>Pandabuy URL</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='pandabuy'
+            {...register('pandabuy_url')}
+            className={errors.pandabuy_url?.message && 'is-invalid'}
+          />
+          <p className='invalid-feedback'>{errors.pandabuy_url?.message}</p>
+        </Form.Group>
         <Form.Group>
           <Form.Label>Brand</Form.Label>
           <Form.Control
@@ -120,17 +146,6 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
             className={errors.price?.message && 'is-invalid'}
           />
           <p className='invalid-feedback'>{errors.price?.message}</p>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            as={'textarea'}
-            rows={3}
-            placeholder='description'
-            {...register('description')}
-            className={errors.description?.message && 'is-invalid'}
-          />
-          <p className='invalid-feedback'>{errors.description?.message}</p>
         </Form.Group>
         <Button
           style={{ backgroundColor: '#e03a3c', color: '#fff' }}

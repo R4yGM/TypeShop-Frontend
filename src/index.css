@@ -1,5 +1,8 @@
 @import '@webpixels/css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css');
 
 * {
@@ -10,7 +13,7 @@
 
 body {
   background: #f1f1f1 !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -34,15 +37,28 @@ a {
 .carsouel__item img {
   height: 50rem;
 }
+.form-check-label{
+  font-size: 17px;
+  font-weight: 300;
+}
 
+.form-check-input:checked {
+  background-color: #332D2D;
+  border-color: #332D2D;
+}
 .nav-link span {
+  color: #9FA6B2;
   font-size: 1.1rem;
   transition: all 0.2s ease;
 }
 
 .nav-link span:hover {
   font-weight: bold;
-  color: #e03a3c !important;
+  color: #646363;
+}
+.active span {
+  font-weight: bold !important;
+  color: #332D2D !important;
 }
 
 .dropdown-item {
@@ -51,7 +67,7 @@ a {
 
 .dropdown-item:hover {
   color: #fff;
-  background-color: #e03a3c !important;
+  background-color: #332D2D !important;
 }
 
 @media (max-height: 760px) {
@@ -70,6 +86,15 @@ section {
   transition: all 0.3 ease;
 }
 
+.zoom:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.loaderIcon {
+  margin-right: 7px;
+  top: 2px;
+  animation: spin 1s infinite linear;
+}
 .icons__cart:active {
   transform: scale(1.1);
 }
@@ -103,4 +128,133 @@ section {
 .tempaltemo-carousel .h1 {
   font-size: 0.5em !important;
   color: #000 !important;
+}
+
+
+
+
+.dropdownn {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  background-color: white;
+  font-size: large;
+}
+
+.dropdownn-header {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.dropdownn-body {
+  padding: 5px;
+  border-top: 1px solid #E5E8EC;
+  display: none;
+  font-weight: 300;
+}
+
+.dropdownn-body.open {
+  display: block;
+}
+
+.dropdownn-item {
+  padding: 10px;
+  border-radius: 0.3rem;
+}
+
+.dropdownn-item:hover {
+  cursor: pointer;
+  color: black !important;
+  background-color: #f5f5f5 !important;
+}
+
+.dropdownn-item-dot {
+  opacity: 0;
+  color: #91A5BE;
+  transition: all .2s ease-in-out;
+}
+
+.dropdownn-item-dot.selected {
+  opacity: 1;
+
+}
+.selected-item{
+  color:white;
+  background-color: #16192c;
+  border-radius: 0.3rem;
+}
+.selected-item:hover{
+  color:white !important;
+  background-color: #16192c !important;
+  border-radius: 0.3rem !important;
+}
+
+.icon {
+  font-size: 13px;
+  color: #91A5BE;
+  transform: rotate(0deg);
+  transition: all .2s ease-in-out;
+}
+
+.icon.open {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 767px) {
+  .pandabuy {
+    font-size: 0.8rem; /* Riduci la dimensione del testo */
+  }
+}
+
+/* Esempio di media query per schermi di larghezza compresa tra 768px e 992px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .pandabuy {
+    font-size: 1rem; /* Dimensione del testo predefinita */
+  }
+}
+
+/* Esempio di media query per schermi di larghezza superiore a 992px */
+@media (min-width: 992px) {
+  .pandabuy {
+    font-size: 1.2rem; /* Aumenta la dimensione del testo */
+  }
+}
+
+.fancy {
+  position: relative;
+  white-space: nowrap;
+  color: black;
+
+  &:after {
+    --deco-height: 0.3125em;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--deco-height) * -0.625);
+    height: var(--deco-height);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='black' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-size: auto 100%;
+    background-repeat: round;
+    background-position: 0em;
+  }
+}
+
+.marque_wrapper {
+  margin: 0px 30px;
+  width: 95%;
+}
+
+.mobile-only-div {
+  display: none; /* Nasconde il div su schermi non mobili */
+}
+
+@media (max-width: 767px) {
+  .mobile-only-div {
+    display: block; /* Mostra il div solo su schermi mobili con larghezza massima di 767px */
+  }
 }

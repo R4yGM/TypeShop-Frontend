@@ -24,11 +24,11 @@ const DefaultLayout = ({
     <Fragment>
       <Meta title={title} description={description} />
       <Header />
-      {isHome && <Carousels />}
-      <main id='main' className='py-3'>
+      
+      <main id='main' className='' >
         {children}
       </main>
-      {isHome && <Brands />}
+      
       <div id='footer'>
         {isHome && <DownFooter />}
         <Footer />

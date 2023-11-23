@@ -1,6 +1,7 @@
 const CURRENCRY_FORMATTER = new Intl.NumberFormat(undefined, {
   currency: 'USD',
   style: 'currency',
+  currencyDisplay: 'narrowSymbol', // Usa 'narrowSymbol' invece di 'symbol'
 });
 
 export const formatCurrencry = (number: any) => {
@@ -14,4 +15,4 @@ export const getDate = (date: Date) => {
 export const baseUrl =
   import.meta.env.VITE_MODE === 'development'
     ? 'http://localhost:5000'
-    : 'https://rep-api.onrender.com';
+    : 'http://localhost:5000';

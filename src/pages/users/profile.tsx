@@ -80,10 +80,8 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(getUserBydId(id));
-    dispatch(getUserOrder());
   }, [dispatch, id, refresh]);
 
-  const cols = ['Order id', 'Price', 'Address', 'Paid', 'Date', 'Options'];
 
   return (
     <DefaultLayout title={`${user?.name} profile`}>
@@ -93,8 +91,10 @@ const Profile = () => {
         ) : (
           <Row>
             
-            <Col lg={4} md={5} xs={12}>
+            <Col lg={6} md={6} xs={6}>
+              <br/>
               <h2>User Profile</h2>
+              <br/>
               <Card>
                 <Card.Body>
                   <Form onSubmit={handleSubmit(onSubmit)}>
@@ -153,7 +153,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Button
-                      style={{ backgroundColor: '#e03a3c', color: '#fff' }}
+                      style={{ backgroundColor: '#332D2D', color: '#fff' }}
                       variant='outline-none'
                       type='submit'
                       className='mt-3 w-full'
@@ -163,41 +163,6 @@ const Profile = () => {
                   </Form>
                 </Card.Body>
               </Card>
-            </Col>
-            <Col md={7} lg={8}>
-              <TableContainer cols={cols}>
-                {orders.map((order) => (
-                  <tr key={order._id}>
-                    <td>{order._id}</td>
-
-                    <td>{formatCurrencry(order?.totalPrice)}</td>
-                    <td>{order?.shippingAddress?.address}</td>
-                    <td>
-                      {order.isPaid ? (
-                        <FaCheck color='green' />
-                      ) : (
-                        <FaTimes color='red' />
-                      )}
-                    </td>
-                    <td>{getDate(order?.createdAt)}</td>
-                    <td>
-                      <Link
-                        to={`/orders/${order._id}`}
-                        className='btn btn-sm btn-secondary  me-2'
-                      >
-                        <GrView />
-                      </Link>
-                      <Button
-                        onClick={() => onDelete(order._id)}
-                        variant='danger'
-                        size='sm'
-                      >
-                        <FaTrash />
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </TableContainer>
             </Col>
           </Row>
         )}

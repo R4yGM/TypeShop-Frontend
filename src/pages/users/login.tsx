@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import FormContainer from '../../components/UI/form-container';
-import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from '../../redux';
 import { userLogin } from '../../redux/users/login-slice';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 type FormValues = {
   email: string;
@@ -43,17 +43,15 @@ const Login = () => {
 
   return (
     <FormContainer
-      meta='Login your account'
-      image='https://blog.hubspot.com/hubfs/ecommerce-1.png'
-      title='Login Your Account'
+      meta='Accedi'
+      title='Accedi'
     >
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId='email'>
-          <Form.Label>Email</Form.Label>
-
+          <Form.Label style={{fontWeight:"bolder"}}>Email</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Enter email'
+            placeholder='Inserisci un email'
             {...register('email')}
             className={errors.email?.message && 'is-invalid'}
           />
@@ -61,7 +59,7 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group controlId='password'>
-          <Form.Label>Mot de Passe </Form.Label>
+          <Form.Label style={{fontWeight:"bolder"}}>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='*******'
@@ -70,19 +68,27 @@ const Login = () => {
           />
           <p className='invalid-feedback'>{errors.password?.message}</p>
           <Link to='/register' className='float-end me-2 mt-1'>
-            Dont have an Account ? Register
+            Non hai un account? Registrati
           </Link>
         </Form.Group>
 
         <Button
           type='submit'
           className='mt-4 w-full'
-          style={{ backgroundColor: '#e03a3c', color: '#fff' }}
-          variant='outline-none'
+          style={{ backgroundColor: '#16192c', color: '#fff' }}
         >
-          Submit
+          Accedi
         </Button>
       </Form>
+      {/* 
+      <Row className='mt-3'>
+        <Col>
+          <Link to='/forgot-password' className='text-decoration-none'>
+            Forgot Password?
+          </Link>
+        </Col>
+      </Row>
+      */}
     </FormContainer>
   );
 };

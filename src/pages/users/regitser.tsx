@@ -1,11 +1,12 @@
-import React from 'react';
+import {useEffect} from 'react';
 import FormContainer from '../../components/UI/form-container';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import publicAxios from '../../utils/public-axios';
+import { useAppDispatch, useAppSelector } from '../../redux';
 import toast from 'react-hot-toast';
 import { setError } from '../../utils/error';
 
@@ -18,6 +19,15 @@ type FormValues = {
 
 const Register = () => {
   const navigate = useNavigate();
+  const { userInfo } = useAppSelector((state: any) => state.login);
+  
+  useEffect(() => {
+    if (userInfo) {
+      navigate(`/profile/${userInfo._id}`);
+    }
+  }, [userInfo, navigate]);
+  
+ 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required('Username is required')
@@ -53,15 +63,14 @@ const Register = () => {
 
   return (
     <FormContainer
-      meta='register for free'
-      image='https://blog.hubspot.com/hubfs/ecommerce-1.png'
-      title='Register For Free'
+      meta='Registrati'
+      title='Registrati'
     >
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId='name'>
           <Form.Label>Username</Form.Label>
           <Form.Control
-            placeholder='Enter name'
+            placeholder='Inserisci un username'
             {...register('name')}
             className={errors.name?.message && 'is-invalid'}
           />
@@ -72,14 +81,14 @@ const Register = () => {
 
           <Form.Control
             type='email'
-            placeholder='Enter email'
+            placeholder='Inserisci un email'
             {...register('email')}
             className={errors.email?.message && 'is-invalid'}
           />
           <p className='invalid-feedback'>{errors.email?.message}</p>
         </Form.Group>
         <Form.Group controlId='password'>
-          <Form.Label>Mot de Passe </Form.Label>
+          <Form.Label>Password</Form.Label>
 
           <Form.Control
             type='password'
@@ -90,7 +99,7 @@ const Register = () => {
           <p className='invalid-feedback'>{errors.password?.message}</p>
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password </Form.Label>
+          <Form.Label>Conferma Password</Form.Label>
 
           <Form.Control
             type='password'
@@ -100,17 +109,17 @@ const Register = () => {
           />
           <p className='invalid-feedback'>{errors.confirmPassword?.message}</p>
           <Link to='/login' className='float-end me-2 mt-1'>
-            Already have an Account ? Login
+            Hai già un account ? Accedi
           </Link>
         </Form.Group>
 
         <Button
-          style={{ backgroundColor: '#e03a3c', color: '#fff' }}
+          style={{ backgroundColor: '#16192c', color: '#fff' }}
           variant='outline-none'
           type='submit'
           className='mt-4 w-full'
         >
-          Register
+          Registrati!
         </Button>
       </Form>
     </FormContainer>

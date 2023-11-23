@@ -4,6 +4,8 @@ import './footer.css';
 
 const DownFooter = () => {
   return (
+    <></>
+    /*
     <footer id='footer' className='mt-auto'>
       <div className='footer-top'>
         <Container>
@@ -93,6 +95,7 @@ const DownFooter = () => {
         </Container>
       </div>
     </footer>
+    */
   );
 };
 

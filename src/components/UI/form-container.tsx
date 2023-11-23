@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Container, Row, Col, Card, Image } from 'react-bootstrap';
+import { MDBIcon } from 'mdb-react-ui-kit';
 import DefaultLayout from '../layouts/default-layout';
 
 type FormTypes = {
@@ -16,12 +17,9 @@ const FormContainer = (props: FormTypes) => {
         <Row className=' justify-content-center py-6'>
           <Col md={6}>
             <Card>
-              <h1 style={{ color: '#e03a3c' }} className='text-center my-3'>
-                {props.title}
+              <h1 style={{ color: 'black', fontWeight:"bold" }} className='mt-8 mb-4 text-center my-3'>
+              <MDBIcon fas icon="sign-in-alt" /> {props.title}
               </h1>
-              {props.image && (
-                <Image src={props.image} style={{ height: '250px' }} />
-              )}
               <Card.Body>{props.children}</Card.Body>
             </Card>
           </Col>
