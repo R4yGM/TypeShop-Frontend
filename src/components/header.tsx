@@ -180,7 +180,7 @@ const Header = () => {
           <Navbar.Brand as={NavLink} to='/'>
             <img
               style={{ objectFit :'cover', width: '40%', height: 'auto', maxWidth: '40%', maxHeight: '290px' }}
-              src='/src/w2c_navbar.png'
+              src='https://firebasestorage.googleapis.com/v0/b/rep-project-1337.appspot.com/o/logo%2Fw2c_navbar.png?alt=media'
               className='avatar rounded me-lg-20'
               alt='...'
             />
