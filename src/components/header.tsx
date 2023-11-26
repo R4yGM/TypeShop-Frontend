@@ -59,16 +59,16 @@ const Header = () => {
                           height="15"
                         />
                         <title>💸</title>
-                      </svg>Register on pandabuy         
-          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+                      </svg>Registrati su pandabuy         
+          <a href="https://pandabuy.allapp.link/clhrvn90b4msdaf2k0fg" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
             <FaExternalLinkAlt
               
               size={20}
               className='icons__cart me-0  text-white p-1 cursor-pointer'
             />
-            here
+            QUI
           </a>
-        for $100 discount!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+        per degli sconti fino a 144$!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
                         <image
                           xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
                           className="emoji"
@@ -87,16 +87,16 @@ const Header = () => {
                           height="15"
                         />
                         <title>💸</title>
-                      </svg>Register on pandabuy         
-          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+                      </svg>Registrati su pandabuy         
+          <a href="https://pandabuy.allapp.link/clhrvn90b4msdaf2k0fg" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
             <FaExternalLinkAlt
               
               size={20}
               className='icons__cart me-0  text-white p-1 cursor-pointer'
             />
-            here
+            QUI
           </a>
-        for $100 discount!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+        per degli sconti fino a 144$!         <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
                         <image
                           xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
                           className="emoji"
@@ -116,16 +116,16 @@ const Header = () => {
                           height="15"
                         />
                         <title>💸</title>
-                      </svg>Register on pandabuy         
-          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+                      </svg>Registrati su pandabuy         
+          <a href="https://pandabuy.allapp.link/clhrvn90b4msdaf2k0fg" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
             <FaExternalLinkAlt
               
               size={20}
               className='icons__cart me-0  text-white p-1 cursor-pointer'
             />
-            here
+            QUI
           </a>
-        for $100 discount!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+        per degli sconti fino a 144$!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
                         <image
                           xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
                           className="emoji"
@@ -145,16 +145,16 @@ const Header = () => {
                           height="15"
                         />
                         <title>💸</title>
-                      </svg>Register on pandabuy         
-          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+                      </svg>Registrati su pandabuy         
+          <a href="https://pandabuy.allapp.link/clhrvn90b4msdaf2k0fg" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
             <FaExternalLinkAlt
               
               size={20}
               className='icons__cart me-0  text-white p-1 cursor-pointer'
             />
-            here
+            QUI
           </a>
-        for $100 discount!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
+        per degli sconti fino a 144$!   <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" >
                         <image
                           xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4b8.svg"
                           className="emoji"
