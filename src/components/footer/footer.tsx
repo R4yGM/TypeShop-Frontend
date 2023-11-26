@@ -19,7 +19,7 @@ const Footer = () => {
           Contattaci su <a href='mailto:info@w2c.space'>info@w2c.space</a>
         </div>
         <div className='credits'>
-          <a href='https://stats.uptimerobot.com/1O51ktnOZg'>Status Page</a>
+          <a href='https://stats.uptimerobot.com/1O51ktnOZg' target='_blank'>Status Page</a>
         </div>
       </div>
       
