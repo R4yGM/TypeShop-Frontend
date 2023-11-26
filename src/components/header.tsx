@@ -204,7 +204,7 @@ const Header = () => {
               </Nav.Item>
 
               <Nav.Item as={NavLink} className=' nav-link' to='/seggestions'>
-                <span>Suggerimenti</span>
+                <span>Trova</span>
               </Nav.Item>
             </div>
             {/* Right navigation */}
@@ -253,7 +253,7 @@ const Header = () => {
                       style={{backgroundColor:"#16192c"}}
                       className='btn btn-sm text-white  ms-xs-3 '
                     >
-                      Register
+                      Registrati
                     </Nav.Link>
                   </div>
                 </>

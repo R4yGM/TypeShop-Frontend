@@ -142,12 +142,20 @@ const CartPage = () => {
     <DefaultLayout title='cart shop' >
       <Container className='mt-5'>
         {cartItems.length === 0 ? (
-          <div>
-            Your cart is empty
-            <Link to='/home' className='mx-3'>
-              Go Back
-            </Link>
-          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
+  <div className='section-title text-center' style={{ margin: 'auto', maxWidth: '600px' }}>
+    <h2 style={{ fontWeight: 'bold' }}>
+      Il tuo carrello è vuoto, vai ad aggiungere dei prodotti!
+    </h2>
+    <h3 style={{ fontWeight: 'normal' }} className='mt-3'>
+      <MDBIcon fas icon="external-link-alt" />
+      <Link to='/home' className='mx-3'>
+        Torna alla home
+      </Link>
+    </h3>
+  </div>
+</div>
+
         ) : (
           <Row>
             <Col md={8}>

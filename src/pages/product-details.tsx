@@ -71,7 +71,7 @@ const ProductDetails = () => {
 
     try {
   
-      const pandabuyUrlObj = new URL(product?.pandabuy_url);
+      const pandabuyUrlObj = new URL(product.pandabuy_affiliate);
       const searchParams = new URLSearchParams(pandabuyUrlObj.search);
     
       var pandabuyUrl = searchParams.get("url");

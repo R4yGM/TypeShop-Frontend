@@ -15,6 +15,9 @@ const Footer = () => {
         <div className='credits'>
           Designed by <a href='#'>W2C.SPACE</a>
         </div>
+        <div className='credits'>
+          Contattaci su <a href='mailto:info@w2c.space'>info@w2c.space</a>
+        </div>
       </div>
       
       {/*

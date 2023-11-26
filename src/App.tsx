@@ -16,6 +16,7 @@ import Contact from './pages/contact/contact';
 import OrdersTable from './pages/dashboard/orders/order-table';
 import OrderDetails from './pages/cart/order-details';
 import Products from './pages/products';
+import NotFound from './pages/404/404';
 import AuthProvider from './utils/auth-provider';
 import AdminProvider from './utils/admin-provider';
 import { lazy, Suspense } from 'react';
@@ -32,6 +33,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<HomePage />} />
+        
         <Route path='/home' element={<Products />} />
         <Route path='/search/:keyword' element={<Products />} />
         <Route path='/page/:pageNumber' element={<Products />} />
@@ -94,6 +96,7 @@ const App = () => {
         </Route>
 
         <Route path='/seggestions' element={<Contact />} />
+        <Route path='*' element={<NotFound />}/>
       </Routes>
       <Toaster position='top-center' reverseOrder={false} />
     </Router>
