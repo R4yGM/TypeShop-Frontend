@@ -6,6 +6,7 @@ import DownFooter from '../footer/down-footer';
 import Footer from '../footer/footer';
 import Header from '../header';
 import Meta from '../UI/meta';
+import { Analytics } from '@vercel/analytics/react';
 
 type LayoutProvider = {
   children: ReactNode;
@@ -33,6 +34,7 @@ const DefaultLayout = ({
         {isHome && <DownFooter />}
         <Footer />
       </div>
+      <Analytics />
     </Fragment>
   );
 };
