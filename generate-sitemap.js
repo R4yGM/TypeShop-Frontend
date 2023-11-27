@@ -1,7 +1,6 @@
 const axios = require('axios');
 const { Builder } = require('xml2js');
 const fs = require('fs');
-const cron = require('node-cron');
 
 const generateSitemap = async () => {
   try {
@@ -46,8 +45,4 @@ const generateSitemap = async () => {
   }
 };
 
-// Esegui la funzione ogni giorno a mezzanotte (00:00)
-cron.schedule('0 0 * * *', () => {
-  generateSitemap();
-});
 generateSitemap();
