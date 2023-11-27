@@ -23,7 +23,7 @@ jobs:
         run: node generate-sitemap.js
 
       - name: Move Generated Sitemap to Repository
-        run: mv -f ./public/sitemap.xml $GITHUB_WORKSPACE/sitemap.xml
+        run: mv -f ./public/sitemap.xml $GITHUB_WORKSPACE/public/sitemap.xml
 
       - name: Commit and Push Changes
         run: |
