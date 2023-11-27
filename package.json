@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently \"node generate-sitemap.js\" \"vite\"",
-    "build": "concurrently \"node generate-sitemap.js\" \"vite build\"",
-    "preview": "vite preview"
+    "dev": "npm-run-all -p generate-sitemap vite",
+    "build": "npm-run-all -p generate-sitemap vite build",
+    "preview": "vite preview",
+    "generate-sitemap": "node generate-sitemap.js",
+    "vite": "vite"
   },
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
@@ -22,6 +24,7 @@
     "mdb-react-ui-kit": "^6.3.0",
     "node-cron": "^3.0.3",
     "react": "^18.0.0",
+    "npm-run-all": "^4.1.5",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.0.0",
     "react-emoji": "^0.5.0",
