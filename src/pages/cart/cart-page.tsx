@@ -11,6 +11,7 @@ import {
 import {
   MDBBtn,
   MDBCard,
+  MDBIcon,
   MDBCardBody,
   MDBCardImage,
   MDBTypography,
