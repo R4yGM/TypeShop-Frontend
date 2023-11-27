@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+
 import FormContainer from '../../components/UI/form-container';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -42,6 +44,21 @@ const Login = () => {
   }, [userInfo]);
 
   return (
+    <>
+      <Helmet>
+        <title>Accedi - w2c.space</title>
+        <meta name="description" content="Accedi sul tuo account" />
+        <meta name="keywords" content="login, account, accedi, profilo, w2c.space" />
+        <meta name="author" content="w2c.space" />
+        <meta property="og:title" content="Login - w2c.space" />
+        <meta property="og:description" content="Accedi sul tuo account" />
+        <meta property="og:image" content="src/round.png" />
+        <meta property="og:url" content="src/round.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Accedi - w2c.space" />
+        <meta name="twitter:description" content="Accedi sul tuo account" />
+        <meta name="twitter:image" content="src/round.png" />
+      </Helmet>
     <FormContainer
       meta='Accedi'
       title='Accedi'
@@ -90,6 +107,7 @@ const Login = () => {
       </Row>
       */}
     </FormContainer>
+    </>
   );
 };
 

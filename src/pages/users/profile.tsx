@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DefaultLayout from '../../components/layouts/default-layout';
 import Loader from '../../components/UI/loader';
-import TableContainer from '../../components/UI/table-contrainer';
 import { useAppDispatch, useAppSelector } from '../../redux';
 import { getUserBydId } from '../../redux/users/user-details';
 import { useForm } from 'react-hook-form';
@@ -12,10 +12,6 @@ import * as Yup from 'yup';
 import authAxios from '../../utils/auth-axios';
 import toast from 'react-hot-toast';
 import { setError } from '../../utils/error';
-import { getUserOrder } from '../../redux/orders/user-orders';
-import { formatCurrencry, getDate } from '../../utils/helper';
-import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
-import { GrView } from 'react-icons/gr';
 
 type FormValues = {
   email: string;
@@ -84,16 +80,31 @@ const Profile = () => {
 
 
   return (
-    <DefaultLayout title={`${user?.name} profile`}>
+    <DefaultLayout title={`Profilo di ${user?.name}`}>
+      <Helmet>
+        <title>{`Profilo di ${user?.name}`}</title>
+        <meta name="description" content={`Pagina profilo di ${user?.name}. Aggiorna le tue informazione e visualizza i tuoi prodotti salvati`} />
+        <meta name="keywords" content={`${user?.name}, Profilo, prodotti, w2c.space, pandabuy, prodotti pandabuy, finds, reps`} />
+        <meta name="author" content="Your Name" />
+        <meta property="og:title" content={`${user?.name} Profilo`} />
+        <meta property="og:description" content={`Pagina profilo di ${user?.name}. Aggiorna le tue informazione e visualizza i tuoi prodotti salvati`} />
+        <meta property="og:image" content="src/round.png" />
+        <meta property="og:url" content="src/round.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${user?.name} Profile`} />
+        <meta name="twitter:description" content={`Pagina profilo di ${user?.name}. Aggiorna le tue informazione e visualizza i tuoi prodotti salvati`} />
+        <meta name="twitter:image" content="src/round.png" />
+      </Helmet>
+
       <Container>
         {loading || !user || orderLoading || !orders ? (
           <Loader />
         ) : (
           <Row>
             
-            <Col lg={6} md={6} xs={6}>
+            <Col  md={6} >
               <br/>
-              <h2>User Profile</h2>
+              <h2>Profilo utente</h2>
               <br/>
               <Card>
                 <Card.Body>
@@ -111,7 +122,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Form.Group controlId='email'>
-                      <Form.Label>Email Address</Form.Label>
+                      <Form.Label>Email</Form.Label>
                       <Form.Control
                         {...register('email', {
                           value: user?.email,
@@ -138,7 +149,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Form.Group controlId='confirmPassword'>
-                      <Form.Label>Confirm Password</Form.Label>
+                      <Form.Label>Conferma Password</Form.Label>
                       <Form.Control
                         {...register('confirmPassword')}
                         type='password'
@@ -158,7 +169,7 @@ const Profile = () => {
                       type='submit'
                       className='mt-3 w-full'
                     >
-                      Update
+                      Aggiorna
                     </Button>
                   </Form>
                 </Card.Body>

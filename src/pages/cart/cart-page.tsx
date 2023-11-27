@@ -139,7 +139,21 @@ const CartPage = () => {
 }
   
   return (
-    <DefaultLayout title='cart shop' >
+    <DefaultLayout title='Carrello | Prodotti salvati | w2c.space' >
+      <Helmet>
+        <title>Carrello | Prodotti salvati | w2c.space</title>
+        <meta name="description" content="I tuoi elementi salvati su w2c.space per prodotti fidati su pandabuy" />
+        <meta name="keywords" content="shopping cart, cart, checkout, w2c.space, saved, salvati, prodotti, pandabuy, finds, w2c, pandabuy finds, pandabuy prodotti" />
+        <meta name="author" content="w2c.space" />
+        <meta property="og:title" content="Shopping Cart" />
+        <meta property="og:description" content="I tuoi elementi salvati su w2c.space per prodotti fidati su pandabuy" />
+        <meta property="og:image" content="src/round.png" />
+        <meta property="og:url" content="src/round.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Shopping Cart" />
+        <meta name="twitter:description" content="I tuoi elementi salvati su w2c.space per prodotti fidati su pandabuy" />
+        <meta name="twitter:image" content="src/round.png" />
+      </Helmet>
       <Container className='mt-5'>
         {cartItems.length === 0 ? (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>

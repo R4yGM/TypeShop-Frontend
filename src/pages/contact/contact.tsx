@@ -1,13 +1,12 @@
-import React from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap'
 import { MDBIcon } from 'mdb-react-ui-kit';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../components/layouts/default-layout';
 import './contact.css';
-import { useAppDispatch, useAppSelector } from '../../redux';
+import { useAppDispatch } from '../../redux';
 import { sendSuggestion } from '../../redux/suggestions/suggest';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet';
 
 
 const Contact = () => {
@@ -37,10 +36,27 @@ const Contact = () => {
     }
   };
 
-  
+  const currentUrl = window.location.href;
 
   return (
     <DefaultLayout>
+      <Helmet>
+        <title>Contact Us</title>
+        <meta name="description" content="Stai cercando un prodotto di pandabuy e non lo trovi? mandaci la tua richiesta e ti manderemo il prodotto che stavi cercando da un seller trustato e fidato!" />
+        <meta name="keywords" content="Contattaci, contact, Suggerimento, find a product,Trova un prodotto, w2c.space, pandabuy, finds, w2c, weidan, reps, reps italia, pandabuy vestiti" />
+        <meta name="author" content="w2c.space" />
+        <meta property="og:title" content="Trova un prodotto" />
+        <link rel="canonical" href={currentUrl} />
+        <meta property="og:description" content="Stai cercando un prodotto di pandabuy e non lo trovi? mandaci la tua richiesta e ti manderemo il prodotto che stavi cercando da un seller trustato e fidato!" />
+        <meta property="og:image" content="src/round.png" />
+        <meta property="og:url" content="src/round.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="src/round.png" />
+        <meta name="twitter:title" content="Trova prodotti su pandabuy" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:description" content="Stai cercando un prodotto di pandabuy e non lo trovi? mandaci la tua richiesta e ti manderemo il prodotto che stavi cercando da un seller trustato e fidato!" />
+        <meta name="twitter:image" content="src/round.png" />
+      </Helmet>
       <section id='contact' className='contact'>
         <Container data-aos='fade-up'>
         <div className='section-title'>

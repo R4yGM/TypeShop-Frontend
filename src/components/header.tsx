@@ -203,7 +203,7 @@ const Header = () => {
                 <span>Prodotti</span>
               </Nav.Item>
 
-              <Nav.Item as={NavLink} className=' nav-link' to='/seggestions'>
+              <Nav.Item as={NavLink} className=' nav-link' to='/trova'>
                 <span>Trova</span>
               </Nav.Item>
             </div>

@@ -1,28 +1,49 @@
 import { useEffect } from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import DefaultLayout from '../components/layouts/default-layout';
-import ProductCard from '../components/product-card';
-import Loader from '../components/UI/loader';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../redux';
-import { getProducts } from '../redux/products/slice-list';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import {
   MDBIcon,
-  MDBBtn,
 } from 'mdb-react-ui-kit';
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state: any) => state.login);
-  const { products, loading } = useAppSelector((state) => state.productList);
+  //const { products, loading } = useAppSelector((state) => state.productList);
 
   useEffect(() => {
-    dispatch(getProducts());
+    //dispatch(getProducts());
   }, [dispatch]);
   const navigate = useNavigate();
+  const currentUrl = window.location.href;
 
   return (
 <DefaultLayout>
+<Helmet>
+        <title>#1 W2C Italiano - Where To Cop italiano per prodotti su pandabuy.com</title>
+        <meta
+          name="description"
+          content="Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!"
+        />
+
+        <link rel="canonical" href={currentUrl} />
+
+        {/* Meta tag per Open Graph (Facebook, LinkedIn) */}
+        <meta property="og:title" content="#1 W2C Italiano" />
+        <meta property="og:description" content="Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:image" content="src/round.png" /> 
+        <meta property="og:type" content="website" />
+
+        {/* Meta tag per Twitter Cards */}
+        <meta name="twitter:title" content="#1 W2C Italiano" />
+        <meta name="twitter:description" content="Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:image" content="src/round.png" /> 
+        <meta name="twitter:card" content="summary_large_image" />
+  </Helmet>
   <Container
   
     style={{
@@ -36,20 +57,21 @@ const HomePage = () => {
     }}
   >
     <br />
-    <h2 style={{ fontSize: "70px", color: 'white', fontWeight: "bold",textAlign: 'center' }} className='mt-20 '>
-      #1 <span className="fancy">W2C</span> Italiano
+    <h1 style={{ fontSize: "70px", color: 'white', fontWeight: "bold",textAlign: 'center' }} className='mt-20 '>
+      #1 <span className="fancy">W2C</span> Italiano 
       <svg className="ms-3" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
         <image
           xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ee-1f1f9.svg"
           className="emoji"
           width="100"
           height="100"
+          alt="flag🇮🇹"
         />
-        <title>🇮🇹</title>
+        <title>flag🇮🇹</title>
       </svg>
-    </h2>
+    </h1>
     <br />
-    <h3 style={{ fontSize: "40px", color:"#FBFBFB", fontWeight:"300",textAlign: 'center'}} className='mt-2' >Where To Cop italiano per prodotti su pandabuy.com</h3>
+    <h2 style={{ fontSize: "40px", color:"#FBFBFB", fontWeight:"300",textAlign: 'center'}} className='mt-2' >Where To Cop italiano per prodotti su pandabuy.com</h2>
     <Row className='d-flex justify-content-center align-items-center mt-24'>
 
   <Col md={6} className='mt-2'>
@@ -134,7 +156,7 @@ const HomePage = () => {
                         />
                         <title>💸</title>
                       </svg>Registrati        
-          <a href="bronci.com" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
+          <a href="https://pandabuy.allapp.link/clhrvn90b4msdaf2k0fg" target="_blank" className="ms-1 me-1 w-full square rounded-2 pe-2  hover-zoom zoom" style={{ color:"white", backgroundColor: '#1F51FF' }}>
             <FaExternalLinkAlt
               
               size={20}

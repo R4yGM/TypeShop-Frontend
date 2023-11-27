@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Button,
   Card,
   Col,
   Container,
@@ -9,24 +8,22 @@ import {
   ListGroup,
   Row,
 } from 'react-bootstrap';
-import { MDBIcon,MDBCard, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBIcon, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import { SiFoodpanda } from 'react-icons/si';
-import { GoLinkExternal } from 'react-icons/go';
 import { useNavigate, useParams } from 'react-router-dom';
 import DefaultLayout from '../components/layouts/default-layout';
 import { Product } from '../components/product-card';
 import Loader from '../components/UI/loader';
 import Message from '../components/UI/message';
 import Rating from '../components/UI/rating';
-import RedButton from '../components/UI/red-button';
 import { useAppDispatch, useAppSelector } from '../redux';
-import { addToCart, AddCart } from '../redux/cart/cart-slice';
+import {  AddCart } from '../redux/cart/cart-slice';
 import { getProductById } from '../redux/products/slice-details';
 import authAxios from '../utils/auth-axios';
 import { setError } from '../utils/error';
 import { formatCurrencry, getDate } from '../utils/helper';
+import { Helmet } from 'react-helmet';
 
 const ProductDetails = () => {
   const dispatch = useAppDispatch();
@@ -104,7 +101,28 @@ const ProductDetails = () => {
 
 
   return (
-    <DefaultLayout title={product?.name}>
+    <DefaultLayout title={`${product?.name} | w2c.space`}>
+      <Helmet>
+        <title>{product?.name}</title>
+        <meta name="description" content={`Check out the details of ${product?.name}`} />
+        <link rel="canonical" href={window.location.href} />
+
+        {/* Meta tag per Open Graph (Facebook, LinkedIn) */}
+        <meta property="og:title" content={product?.name} />
+        <meta property="og:description" content={`Check out the details of ${product?.name}`} />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content={product?.image} />
+        <meta property="og:type" content="product" />
+
+        {/* Meta tag per Twitter Cards */}
+        <meta name="twitter:title" content={product?.name} />
+        <meta name="twitter:description" content={`Check out the details of ${product?.name}`} />
+        <meta name="twitter:url" content={window.location.href} />
+        <meta name="twitter:image" content={product?.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+
       {loading || !product ? (
         <Loader />
       ) : (
