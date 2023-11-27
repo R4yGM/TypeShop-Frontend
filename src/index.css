@@ -258,3 +258,8 @@ section {
     display: block; /* Mostra il div solo su schermi mobili con larghezza massima di 767px */
   }
 }
+
+.dropdown-item.active:hover {
+  color:white;
+  background-color: #16192c;
+}
