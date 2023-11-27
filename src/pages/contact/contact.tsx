@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <DefaultLayout>
       <Helmet>
-        <title>Contact Us</title>
+        <title>Trova un prodotto | w2c.space</title>
         <meta name="description" content="Stai cercando un prodotto di pandabuy e non lo trovi? mandaci la tua richiesta e ti manderemo il prodotto che stavi cercando da un seller trustato e fidato!" />
         <meta name="keywords" content="Contattaci, contact, Suggerimento, find a product,Trova un prodotto, w2c.space, pandabuy, finds, w2c, weidan, reps, reps italia, pandabuy vestiti" />
         <meta name="author" content="w2c.space" />
@@ -135,4 +135,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
