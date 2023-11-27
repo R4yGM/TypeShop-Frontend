@@ -193,17 +193,17 @@ const Header = () => {
             <div className='navbar-nav me-lg-auto' >
               <Nav.Item
                 as={NavLink}
-                className=' nav-link'
+                className=' nav-link me-3'
                 to='/'
                 aria-current='page'
               >
                 <span>Home</span>
               </Nav.Item>
-              <Nav.Item as={NavLink} className=' nav-link' to='/home'>
+              <Nav.Item as={NavLink} className=' nav-link me-3' to='/home'>
                 <span>Prodotti</span>
               </Nav.Item>
 
-              <Nav.Item as={NavLink} className=' nav-link' to='/trova'>
+              <Nav.Item as={NavLink} className=' nav-link me-3' to='/trova'>
                 <span>Trova</span>
               </Nav.Item>
             </div>
@@ -220,7 +220,7 @@ const Header = () => {
                   <></>
                 ) : (
                   <Link
-                  className='nav-icon position-relative text-decoration-none'
+                  className='nav-icon position-relative text-decoration-none me-3'
                   to='/cart'
                 >
                   <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 ' style={{color:"black"}}></i>
@@ -240,18 +240,18 @@ const Header = () => {
                     <Nav.Link
                       as={NavLink}
                       to='/login'
-                      className='btn btn-secondary btn-sm text-white me-3 ms-5 '
+                      className='btn btn-secondary btn-sm text-white me-3 ms-5 p-3'
                     >
                       Login
                     </Nav.Link>
                   </div>
 
-                  <div className='d-flex align-items-lg-center mt-3 mt-lg-0'>
+                  <div className='d-flex align-items-lg-center mt-3 mt-lg-0 '>
                     <Nav.Link
                       as={NavLink}
                       to='/register'
                       style={{backgroundColor:"#16192c"}}
-                      className='btn btn-sm text-white  ms-xs-3 '
+                      className='btn btn-sm text-white  ms-xs-3 p-3'
                     >
                       Registrati
                     </Nav.Link>
@@ -259,6 +259,7 @@ const Header = () => {
                 </>
               ) : (
                 <NavDropdown
+                  align="end"
                   title={<i className='fa fa-fw fa-user text-dark mr-3'></i>}
                   id='basic-nav-dropdown'
                 >
