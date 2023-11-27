@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import {
   Container,
   Row,
   Col,
-  ListGroup,
-  Image,
-  Button,
-  Card,
+  ListGroup
 } from 'react-bootstrap';
 
 import {
@@ -16,23 +13,15 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardImage,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBInput,
-  MDBRow,
   MDBTypography,
   MDBSpinner,
 } from "mdb-react-ui-kit";
 import { FaMinus, FaPlus, FaExternalLinkAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import DefaultLayout from '../../components/layouts/default-layout';
-import Message from '../../components/UI/message';
-import { useAppDispatch, useAppSelector } from '../../redux';
-import { addToCart, getUserOrder, removeFromCart, AddCart, RemoveCart } from '../../redux/cart/cart-slice';
+import { useAppDispatch } from '../../redux';
+import { getUserOrder, AddCart, RemoveCart } from '../../redux/cart/cart-slice';
 import { formatCurrencry } from '../../utils/helper';
-import { AnyListenerPredicate } from '@reduxjs/toolkit/dist/listenerMiddleware/types';
-import { getProductById } from '../../redux/products/slice-details';
 
 const CartPage = () => {
   //const { cartItems } = useAppSelector((state) => state.cart);
