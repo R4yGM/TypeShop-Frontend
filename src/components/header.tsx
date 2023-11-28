@@ -40,6 +40,8 @@ const Header = () => {
     navigate('/login');
   };
 
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <>
       <nav
@@ -259,7 +261,7 @@ const Header = () => {
                 </>
               ) : (
                 <NavDropdown
-                  align="end"
+                  align={isMobile ? undefined : 'end'}
                   title={<i className='fa fa-fw fa-user text-dark mr-3'></i>}
                   id='basic-nav-dropdown'
                 >
@@ -272,7 +274,7 @@ const Header = () => {
                     as={NavLink}
                     to={`/profile/${userInfo._id}`}
                   >
-                    Profile
+                    Profilo
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
