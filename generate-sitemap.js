@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { Builder } = require('xml2js');
 const fs = require('fs');
+const cron = require('node-cron');
 
 const generateSitemap = async () => {
   try {
@@ -43,6 +44,7 @@ const generateSitemap = async () => {
     const updatedFileContent = fileContent.replace('<urlset>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
     fs.writeFileSync('./public/sitemap.xml', updatedFileContent);
+    fs.writeFileSync('./dist/sitemap.xml', updatedFileContent);
 
 
     console.log('Sitemap generated and saved to /public/sitemap.xml');

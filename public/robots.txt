@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://w2c.space/sitemap.xml

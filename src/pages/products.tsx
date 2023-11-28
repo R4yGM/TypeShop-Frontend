@@ -36,11 +36,6 @@ const Products = () => {
 
   const pageNumber = params.pageNumber || 1;
 
-  const reset = () => {
-    setBrand('');
-    setCategory('');
-    setSearch('');
-  };
   const resetBrand = () => {
     setBrand('');
   };
@@ -55,7 +50,6 @@ const Products = () => {
   }, [dispatch, pageNumber, brand, search, category]);
 
   const [isOpen, setOpen] = useState(false);
-  const [items, setItem] = useState(brands);
   const [selectedItem, setSelectedItem] = useState(null);
   
   const toggleDropdown = () =>{ setOpen(!isOpen);}
@@ -93,7 +87,7 @@ const Products = () => {
       <Container className='mt-5'>
         <Row>
           <Col lg={3}>
-            <h2 className='py-4' style={{fontWeight:"500"}}>Filtro <MDBIcon fas icon="sort-alpha-down-alt" /></h2>
+            <h2 className='py-4' style={{fontWeight:"500"}}>Filtro <i className="bi bi-sort-alpha-down" style={{fontSize:"2rem"}}></i></h2>
             <Card className='shadow mb-5' style={{border:"none"}}>
               <ListGroup variant='flush' >
                 <ListGroup.Item className='p-6' >

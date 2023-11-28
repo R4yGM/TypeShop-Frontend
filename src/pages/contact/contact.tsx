@@ -61,7 +61,7 @@ const Contact = () => {
         <Container data-aos='fade-up'>
         <div className='section-title'>
             <h2 className='text-center' style={{ fontWeight: 'bold' }}>
-            <MDBIcon fas icon="search" /> Trova un prodotto!
+            <i className="bi bi-binoculars-fill"></i> Trova un prodotto!
             </h2>
             <p className='mt-4 mb-4'>
               Puoi inviarci una richiesta di un qualsiasi prodotto che non riesci a trovare e 

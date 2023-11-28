@@ -6,9 +6,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import publicAxios from '../../utils/public-axios';
-import { useAppDispatch, useAppSelector } from '../../redux';
+import { useAppSelector } from '../../redux';
 import toast from 'react-hot-toast';
 import { setError } from '../../utils/error';
+import { Helmet } from 'react-helmet';
+
 
 type FormValues = {
   name: string;
@@ -62,6 +64,21 @@ const Register = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Registrati - w2c.space</title>
+        <meta name="description" content="Registra il tuo account" />
+        <meta name="keywords" content="login, Registrati, account, accedi, profilo, w2c.space" />
+        <meta name="author" content="w2c.space" />
+        <meta property="og:title" content="Registrati - w2c.space" />
+        <meta property="og:description" content="Registra il tuo account" />
+        <meta property="og:image" content="src/round.png" />
+        <meta property="og:url" content="src/round.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Registrati - w2c.space" />
+        <meta name="twitter:description" content="Registra il tuo account" />
+        <meta name="twitter:image" content="src/round.png" />
+      </Helmet>
     <FormContainer
       meta='Registrati'
       title='Registrati'
@@ -123,6 +140,7 @@ const Register = () => {
         </Button>
       </Form>
     </FormContainer>
+    </>
   );
 };
 
