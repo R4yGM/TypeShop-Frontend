@@ -212,7 +212,7 @@ const Header = () => {
             {/* Right navigation */}
 
             <div className='d-flex align-items-center'>
-              <div className='d-flex align-items-center'>
+              <div className='d-flex align-items-center ms-2'>
                 {/* 
                 <Link className='nav-link' to='/home'>
                   <i className='fa fa-fw fa-search text-dark me-2'></i>
@@ -222,7 +222,7 @@ const Header = () => {
                   <></>
                 ) : (
                   <Link
-                  className='nav-icon position-relative text-decoration-none me-3 ms-2'
+                  className='nav-icon position-relative text-decoration-none me-3 '
                   to='/cart'
                 >
                   <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 ' style={{color:"black"}}></i>
