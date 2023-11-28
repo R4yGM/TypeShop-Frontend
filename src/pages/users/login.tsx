@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from '../../redux';
 import { userLogin } from '../../redux/users/login-slice';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 type FormValues = {
   email: string;

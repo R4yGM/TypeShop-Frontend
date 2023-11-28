@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DefaultLayout from '../../components/layouts/default-layout';
 import Loader from '../../components/UI/loader';
 import { useAppDispatch, useAppSelector } from '../../redux';
-import { getOrderById } from '../../redux/orders/order-details';
 import { formatCurrencry } from '../../utils/helper';
 import Stripe from 'react-stripe-checkout';
 import authAxios from '../../utils/auth-axios';

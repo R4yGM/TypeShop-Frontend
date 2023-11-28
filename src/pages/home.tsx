@@ -88,7 +88,7 @@ const HomePage = () => {
         >
           <span>Prodotti</span>
           <div className="ml-auto ms-2">
-            <MDBIcon color='secondary' fas icon="angle-right" />
+            <i className="bi bi-caret-right"></i>
           </div>
           <span className="ms-1">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@ const HomePage = () => {
             <>Profilo</>
           )}
           <div className="ms-2">
-            <MDBIcon color='secondary' fas icon="angle-right" />
+            <i className="bi bi-caret-right"></i>
           </div>
           <span className="ms-3 me-3">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@ const HomePage = () => {
         <Col md={6} className='mt-10 mb-10'>
             {/* Aggiungi il div solo su dispositivi mobili */}
             <div className="mobile-only-div shadow-3" style={{ textAlign: "center", marginTop: "20px" }}>
-            <div style={{backgroundColor:"white", fontWeight:"bolder", fontSize:"1.4rem", color:"black" }} className='p-3 rounded-3 '>
+            <div style={{backgroundColor:"white", fontWeight:"bolder", fontSize:"1.4rem",color:"black" }} className='p-3 rounded-3 '>
             <span>
               <svg className="me-1"width="30" height="30" xmlns="http://www.w3.org/2000/svg" >
                         <image

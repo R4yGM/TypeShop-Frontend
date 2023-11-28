@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
 #footer {
   color: #fff;
   font-size: 14px;
@@ -18,9 +19,6 @@
   line-height: 1;
   font-weight: 700;
 }
-#footer .footer-top .footer-contact h3 span {
-  color: #e03a3c;
-}
 #footer .footer-top .footer-contact p {
   font-size: 14px;
   line-height: 24px;
@@ -32,16 +30,6 @@
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
-}
-#footer .footer-top h4::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #e03a3c;
-  bottom: 0;
-  left: 0;
 }
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
@@ -97,24 +85,6 @@
   padding: 4px 8px;
   width: calc(100% - 100px);
 }
-#footer .footer-newsletter form input[type='submit'] {
-  position: absolute;
-  top: 0;
-  right: -1px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px;
-  background: #e03a3c;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-#footer .footer-newsletter form input[type='submit']:hover {
-  background: #e35052;
-}
 #footer .credits {
   padding-top: 5px;
   font-size: 13px;
@@ -133,8 +103,4 @@
   height: 36px;
   transition: 0.3s;
 }
-#footer .social-links a:hover {
-  background: #e03a3c;
-  color: #fff;
-  text-decoration: none;
-}
+

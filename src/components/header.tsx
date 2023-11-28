@@ -222,13 +222,16 @@ const Header = () => {
                   <></>
                 ) : (
                   <Link
-                  className='nav-icon position-relative text-decoration-none me-3 '
+                  className='nav-icon position-relative text-decoration-none me-5 '
                   to='/cart'
                 >
-                  <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 ' style={{color:"black"}}></i>
+                  
+                  <i style={{color:"black",fontSize:"1.5rem" }} className="bi bi-cart3"></i>
+
+                  
                   <span
                     style={{ backgroundColor: 'black' }}
-                    className='position-absolute top-0 left-100 translate-middle badge rounded-pill  text-white'
+                    className='position-absolute top-1 left-100 translate-middle badge rounded-pill  text-white'
                   >
                     {CartSize}
                   </span>
@@ -262,7 +265,8 @@ const Header = () => {
               ) : (
                 <NavDropdown
                   align={isMobile ? undefined : 'end'}
-                  title={<i className='fa fa-fw fa-user text-dark mr-3'></i>}
+                  title={<i className="bi bi-person-circle mr-3" style={{fontSize:"1.5rem", color:"black"}}></i>}
+                  
                   id='basic-nav-dropdown'
                 >
                   {userInfo.isAdmin && (

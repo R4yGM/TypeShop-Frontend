@@ -1,6 +1,3 @@
-import React from 'react';
-import { Image } from 'react-bootstrap';
-
 const Footer = () => {
   return (
     <div className='container d-md-flex py-4 '>
