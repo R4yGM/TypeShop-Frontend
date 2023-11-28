@@ -9,8 +9,10 @@ import { Helmet } from 'react-helmet';
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state: any) => state.login);
+  //const { products, loading } = useAppSelector((state) => state.productList);
 
   useEffect(() => {
+    //dispatch(getProducts());
   }, [dispatch]);
   const navigate = useNavigate();
   const currentUrl = window.location.href;
@@ -53,7 +55,7 @@ const HomePage = () => {
     }}
   >
     <br />
-    <h1 style={{ fontSize: "70px", color: 'white', fontWeight: "bold",textAlign: 'center' }} className='mt-20 '>
+    <h1 style={{  color: 'white', fontWeight: "bold",textAlign: 'center', fontSize:"3.875rem"}} className='mt-20 '>
       #1 <span className="fancy">W2C</span> Italiano 
       <svg className="ms-3" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
         <image
