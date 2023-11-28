@@ -38,10 +38,23 @@ const generateSitemap = async () => {
     // Scrivi il file XML nella cartella /public
     fs.writeFileSync('./public/sitemap.xml', sitemapXML);
 
+    // Ora apri il file, leggi il suo contenuto, e sostituisci <urlset> con <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    const fileContent = fs.readFileSync('./public/sitemap.xml', 'utf-8');
+    const updatedFileContent = fileContent.replace('<urlset>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+
+    fs.writeFileSync('./public/sitemap.xml', updatedFileContent);
+
+
     console.log('Sitemap generated and saved to /public/sitemap.xml');
   } catch (error) {
     console.error('Error generating sitemap:', error.message);
   }
 };
 
+// Esegui la funzione ogni giorno a mezzanotte (00:00)
+/*
+cron.schedule('0 0 * * *', () => {
+  generateSitemap();
+});
+*/
 generateSitemap();
