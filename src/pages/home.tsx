@@ -5,16 +5,12 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../redux';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import {
-  MDBIcon,
-} from 'mdb-react-ui-kit';
+
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state: any) => state.login);
-  //const { products, loading } = useAppSelector((state) => state.productList);
 
   useEffect(() => {
-    //dispatch(getProducts());
   }, [dispatch]);
   const navigate = useNavigate();
   const currentUrl = window.location.href;
@@ -71,7 +67,7 @@ const HomePage = () => {
       </svg>
     </h1>
     <br />
-    <h2 style={{ fontSize: "40px", color:"#FBFBFB", fontWeight:"300",textAlign: 'center'}} className='mt-2' >Where To Cop italiano per prodotti su pandabuy.com</h2>
+    <h2 style={{color:"#FBFBFB", fontWeight:"300",textAlign: 'center'}} className='mt-2' >Where To Cop italiano per prodotti fidati su pandabuy.com</h2>
     <Row className='d-flex justify-content-center align-items-center mt-24'>
 
   <Col md={6} className='mt-2'>
