@@ -22,7 +22,6 @@ const generateSitemap = async () => {
     // Crea l'oggetto della sitemap
     const sitemapObject = {
       urlset: {
-        _attributes: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
         url: allPages.map(page => ({
           loc: `https://w2c.space${page}`,
           lastmod: new Date().toISOString(),
