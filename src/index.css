@@ -260,6 +260,6 @@ section {
 }
 
 .dropdown-item.active:hover {
-  color:white;
+  color:white !important;
   background-color: #16192c;
 }
