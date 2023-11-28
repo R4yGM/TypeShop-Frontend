@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import CartPage from './pages/cart/cart-page';
-import Checkout from './pages/cart/checkout';
-import ShippingAddress from './pages/cart/shipping-address';
-import HomePage from './pages/home';
+//import HomePage from './pages/home';
+const HomePage = lazy(() => import('./pages/home'));
+
 import ProductDetails from './pages/product-details';
 import Login from './pages/users/login';
 import { Toaster } from 'react-hot-toast';
@@ -14,12 +15,9 @@ import Register from './pages/users/regitser';
 import Profile from './pages/users/profile';
 import Contact from './pages/contact/contact';
 import OrdersTable from './pages/dashboard/orders/order-table';
-import OrderDetails from './pages/cart/order-details';
 import Products from './pages/products';
 import NotFound from './pages/404/404';
 import AuthProvider from './utils/auth-provider';
-import AdminProvider from './utils/admin-provider';
-import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import Loader from './components/UI/loader';
 import ErrorFallback from './components/UI/error-fallback';
@@ -32,29 +30,16 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<Suspense fallback={<div>Caricamento....</div>}>
+      <HomePage />
+  </Suspense>} />
         
         <Route path='/home' element={<Products />} />
         <Route path='/search/:keyword' element={<Products />} />
         <Route path='/page/:pageNumber' element={<Products />} />
         <Route path='/products/:id' element={<ProductDetails />} />
         <Route path='/cart' element={<CartPage />} />
-        <Route
-          path='/shipping-address'
-          element={
-            <AuthProvider>
-              <ShippingAddress />
-            </AuthProvider>
-          }
-        />
-        <Route
-          path='/checkout'
-          element={
-            <AuthProvider>
-              <Checkout />
-            </AuthProvider>
-          }
-        />
+
         <Route
           path='/profile/:id'
           element={
@@ -65,14 +50,6 @@ const App = () => {
         />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route
-          path='/orders/:id'
-          element={
-            <AuthProvider>
-              <OrderDetails />
-            </AuthProvider>
-          }
-        />
 
         <Route
           path='/dashboard'
