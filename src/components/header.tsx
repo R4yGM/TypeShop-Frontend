@@ -222,7 +222,7 @@ const Header = () => {
                   <></>
                 ) : (
                   <Link
-                  className='nav-icon position-relative text-decoration-none me-3'
+                  className='nav-icon position-relative text-decoration-none me-3 ms-2'
                   to='/cart'
                 >
                   <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 ' style={{color:"black"}}></i>
