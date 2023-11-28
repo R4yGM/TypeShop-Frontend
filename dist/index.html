@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+      <!-- Google tag (gtag.js) -->
+      <!--
+      <script defer src="https://www.googletagmanager.com/gtag/js?id=G-V18NKR1EVD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V18NKR1EVD');
+
+
+
+      </script>
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          /** init gtm after 3500 seconds - this could be adjusted */
+          setTimeout(initGTM, 3500);
+        });
+        document.addEventListener('scroll', initGTMOnEvent);
+        document.addEventListener('mousemove', initGTMOnEvent);
+        document.addEventListener('touchstart', initGTMOnEvent);
+        function initGTMOnEvent(event) {
+          initGTM();
+          event.currentTarget.removeEventListener(event.type, initGTMOnEvent); // remove the event listener that got triggered
+        }
+        function initGTM() {
+          if (window.gtmDidInit) {
+            return false;
+          }
+          window.gtmDidInit = true; // flag to ensure script does not get added to DOM more than once.
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.async = true;
+          // ensure PageViews is always tracked (on script load)
+          script.onload = () => {
+            dataLayer.push({ event: 'gtm.js', 'gtm.start': new Date().getTime(), 'gtm.uniqueEventId': 0 });
+          };
+          script.src = 'https://www.googletagmanager.com/gtm.js?id=G-V18NKR1EVD';
+          document.head.appendChild(script);
+        }
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.b9e03c5c.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABI5JREFUWEfNV2sodVkYfrb7NcUpQqb5lEtyqfHDL6LkkksivuQuSiL/KBmXhJ8u9UVhaJAhcvnBIOqUFH0/XHJL4wzJNYeI3M6e3n2cPWedvc/05TTzzfPndN53ve961rPed621OciA5/kMADEAfgLwAwAnuXHfYLsF8CeArwB+5zjuN8MYTt/A83wWgAYAP35D8o8MOQTwM8dxA7pgkQDP87UA6j6S9QMxdRzH1VOcQOB95b9+IJEpIdmkhI7AH/+i7MZIHnIc94l7L7hhU5ZiQuxnItALIN+EJKaE/kIE1gEEmZLFhNgNTq1W36hUKqbPbW1t4evrazTvzc0NVCoV43d0dIS3t7fRmMvLS5ycnDB+hUJxyymVSj48PJxx2Nvb4+LiAnZ2drIJq6ur0dTUxPg8PDxwdHQEMzMz2Zjs7GwMDIjtDwsLC0xPT4Pb39/nfXx8JEGTk5NISkqSTebn54e9vT2Jb2VlBWFhYRL709MT3NzcQMrpQIqtrq6Ce3l54d3d3UES6SM3Nxd9fX2SZOvr6wgJCZElVlVVhebmZolvZmYG8fHxjN3T0xPz8/OgIuQLCwvR20vN8DdcXFxwdnYmSKWPmpoaNDY2yhLw9/fH9va2xCeXPzAwEBMTE1oCcgwpy+LiIiIjI5mENMnu7q7RYtvZ2QFtkQ4vLy8gha+urpiY5eVlBAUFaQnI7RGNLisrQ3t7uxi4sbGB4OBgo5OTo6WlBZWVleKYhYUFREdHMzGurq5CR5ibm2sJkDcrKwuDg4PMQC8vL6HdOE57Z9XW1qKhgS5L46AipGLUoaSkBJ2dnUxAcXExurq6BJtIgPYjJSVFknltbQ2hoaGCPSAggNljaldnZ2ccHx+LcdSG9J9kf3t7AxUb1ZI+5ubmRFVEAg8PDyBp7u/vmcHU81R0W1tboMLRR2pqqjBBW1sbY6fV0SqVSiUiIiIYHxE+PT2FlZUVqwD9S09Px+joKBNAq6bJ6+vrUVfHPheGh4cF0oaFGhsbCyrs8vJydHR0MPkM21tUgEaNjIwgI4NeYyyo6tPS0gQiOtBxfX5+Dvo1PEesra0F2anK9beHYmdnZxETQ689LRgCd3d3wooeHx8lrPv7+xlbcnKy0MeE/Px8yaFVUVGB1tZWMcbS0hJ0thweHsLGxkaeAFkp8dTUlEQFQwN1TGZmpmCm8RSnD2oxKkIdaM/z8vLE6pdVgIx0YdDF8U+gFZDETk7aS9RYAevnoI4ZGxtj5NdtAd0Q4nWsVquFi+P5+dkoh4SEBOEm0wd1xPj4uGwMyU/dsrm5CSKig0ajuZV9kMTFxQnFYgxUDzk5OYybtoQOMznQpDT+y5cvopvOv9fX1w3ZJ1l3dzeKiopkk9FeUh9TP+vj+vpaUI7OfkM4ODhgaGgIiYmJDAGNRiM8yajvmEcpPUbogfH6+ipJputxOXZ05tPZbwiFQoGDgwOxZshPCmg0ms9Gn+VRUVFYWlqSJOvp6UFBQYGsOiRxaWmpxEdHvGF98Dx/aGZm9un/8WHyLsn3+zTTafZdP071N+6//Dz/C5C2EY5lYYKwAAAAAElFTkSuQmCC">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAh5JREFUOE+VU7trWnEU/m4gom6CFYc4aBV1FwULcXCQaP0HzHpxEioKKhSdLCgRbHFU5yyORkLIYBAhAYeMSn3M4mvX4K+cY+7FtE2hBy733PP47vnOQwIAIcQHAF8BfAbwkWzviAAwBdAG8E2SpIX0mtwH4PhH4t9cPwF8IoDvAL78Z7IS/oMAxsdlCyGIEk5OTt5g7vd7SJLEz5FMpHq9LgaDAXQ6HarVquqbTqe4uroCJV5eXuL8/Fz1lctlkN/j8QhJlmXRaDTY2e/34ff7Wc/n8ygWi6yHw2Hc3NywvlqtYDQaWY/FYpAeHh5EIBBgQzqdRqVSYd3lcmE0GrGu1WqxXq+5ymazCVmW2d5qtUA9EHa7HZPJBDabjd/j8RgOx9uhtNttRCIRXFxc4Pb2Fk6nE8Ph8ACQSqVU/vP5HNfX10gmkzCbzfzX2WyGRCKBWq0GjUaD3W6HTCYD6gUD9Ho9tUnE+/7+Ht1uF4VCAXq9HrlcDm63mykq5T8+PsLn8x0AiI/JZMJisYDBYMBms2GOz8/PzJ/6QeOj5lGM1WrlKZCoAPF4HPV6XR2VEkwGokLUFMlmsyiVSvQp1EW6u7tDKBRSg6hUBfB38KenJ3i9XtqRibrKtDAWiwXL5ZJBOp0OgsEg6wQejUZZPzs740mR7Pd7XmW6RD4mAnl5eWEndftYttstf56enirrfDgmJvLOOb/293j//zjnX7OuBMurtwCbAAAAAElFTkSuQmCC">
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICAgIm5hbWUiOiAiIiwKICAgICJzaG9ydF9uYW1lIjogIiIsCiAgICAiaWNvbnMiOiBbCiAgICAgICB7CiAgICAgICAgICAic3JjIjogIi9hbmRyb2lkLWNocm9tZS0xOTJ4MTkyLnBuZyIsCiAgICAgICAgICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICAgICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICAgICB9CiAgICBdLAogICAgInRoZW1lX2NvbG9yIjogIiNGRkZGRkYiLAogICAgImJhY2tncm91bmRfY29sb3IiOiAiI0ZGRkZGRiIsCiAgICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIgogfQ==">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+
+    <meta
+      name="description"
+      content="{{description}}"
+    />
+
+    <link rel="canonical" href={currentUrl} />
+
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:url" content="{{currentUrl}}" />
+    <meta property="og:image" content="{{image}}" /> 
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:description" content="{{description}}" />
+    <meta name="twitter:url" content="{{currentUrl}}" />
+    <meta name="twitter:image" content="{{image}}" /> 
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="keywords" content="{{keywords}}" />
+    <meta name="author" content="w2c.space" />
+
+    <script type="module" crossorigin src="/assets/index.dbdac258.js"></script>
+    <link rel="stylesheet" href="/assets/index.ae984e17.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+  </body>
+</html>
