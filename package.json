@@ -3,8 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "start":"node ./dist/server.js",
     "dev": "vite",
-    "build": "node dist/server.js",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
