@@ -11,6 +11,15 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: cp -r dist functions
+      - name: Install npm packages
+        run: |
+          cd functions
+          npm install
+          npm install firebase-tools
+      - name: Deploy to Firebase
+        run: |
+          cd functions
+          npm run deploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
