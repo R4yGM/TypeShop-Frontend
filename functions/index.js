@@ -58,7 +58,7 @@ app.get("/home", function (req, res) {
       }
       var fullUrl = 'https://w2c.space' + req.originalUrl;
       data = data.replace(/#1 W2C Italiano/g, "Cerca prodotti | w2c.space");
-      
+
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
@@ -189,14 +189,16 @@ app.get("/products/:id", async (req, res) => {
 
 app.use(express.static(path.resolve(__dirname, "./")));
 
+// tieni le configurazioni di default
 app.get("*", function (req, res) {
   const filePath = path.resolve(__dirname, "./dist", "index.html");
   fs.readFile(filePath, "utf8", function (err, data) {
+    
     if (err) {
       return console.log(err);
     }
 
-    var fullUrl = 'https://w2c.space' + req.originalUrl;
+    /*var fullUrl = 'https://w2c.space' + req.originalUrl;
     data = data.replace(/https:\/\/w2c.space\//g, fullUrl);
     data = data.replace(/#1 W2C Italiano/g, "w2c.space");
     data = data.replace(
@@ -205,10 +207,11 @@ app.get("*", function (req, res) {
     );
     //data = data.replace(/https:\/\/w2c\.space\/src\/round\.png/g, "src/round.png");
     data = data.replace(/pandabuy.com, prodotti, reps/g, "pandabuy.com, prodotti, reps");
-
+    */
 
     res.send(data);
   });
 });
+
 
 exports.w2c = functions.https.onRequest(app);
