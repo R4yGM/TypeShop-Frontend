@@ -123,7 +123,7 @@ const HomePage = () => {
           <div className="ms-2">
             <i className="bi bi-caret-right"></i>
           </div>
-          <span className="ms-3 me-3">
+          <span className="ms-3 me-5">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
               <image
                 xlinkHref="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f680.svg"
