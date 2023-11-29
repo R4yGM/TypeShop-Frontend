@@ -19,7 +19,7 @@ jobs:
       - name: Deploy to Firebase
         run: |
           cd functions
-          npm run deploy
+          firebase deploy --only functions --project w2c-space
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
