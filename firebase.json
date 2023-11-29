@@ -16,7 +16,11 @@
     "rewrites": [
       {
         "source": "**/**",
-        "function": "w2c-space"
+        "function": "w2c"
+      },
+      {
+        "source": "**",
+        "function": "w2c"
       }
     ],
     "ignore": [
