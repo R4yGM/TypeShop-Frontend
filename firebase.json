@@ -15,6 +15,10 @@
     "public": "dist",
     "rewrites": [
       {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap.xml"
+      },
+      {
         "source": "**/**",
         "function": "w2c"
       },
