@@ -1,8 +1,7 @@
 name: Deploy to Firebase Hosting on merge
 on: [push]
 
-env:
-  PROJECT_ID: w2c-space
+
 
 jobs:
   build_and_deploy:
@@ -12,10 +11,11 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: cp -r dist functions
-      - uses: aronep6/action-functions-deploy@1.0.0
-        with:
-          serviceAccountKey: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_W2C_SPACE }}"
-          projectId: "${{ env.PROJECT_ID }}"
+      - name: Deploy to Firebase
+        uses: afgallo/deploy-firebase-functions@1.0.0
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_W2C_SPACE }}
+          TARGET: w2c-space
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
