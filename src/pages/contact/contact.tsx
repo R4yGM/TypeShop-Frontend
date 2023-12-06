@@ -36,7 +36,6 @@ const Contact = () => {
     }
   };
 
-  const currentUrl = window.location.href;
 
   return (
     <DefaultLayout>
@@ -46,7 +45,6 @@ const Contact = () => {
         <meta name="keywords" content="Contattaci, contact, Suggerimento, find a product,Trova un prodotto, w2c.space, pandabuy, finds, w2c, weidan, reps, reps italia, pandabuy vestiti" />
         <meta name="author" content="w2c.space" />
         <meta property="og:title" content="Trova un prodotto" />
-        <link rel="canonical" href={currentUrl} />
         <meta property="og:description" content="Stai cercando un prodotto di pandabuy e non lo trovi? mandaci la tua richiesta e ti manderemo il prodotto che stavi cercando da un seller trustato e fidato!" />
         <meta property="og:image" content="src/round.png" />
         <meta property="og:url" content="src/round.png" />

@@ -15,7 +15,6 @@ const HomePage = () => {
     //dispatch(getProducts());
   }, [dispatch]);
   const navigate = useNavigate();
-  const currentUrl = window.location.href;
 
   return (
 <DefaultLayout>
@@ -25,8 +24,6 @@ const HomePage = () => {
           name="description"
           content="Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!"
         />
-
-        <link rel="canonical" href={currentUrl} />
 
         {/* Meta tag per Open Graph (Facebook, LinkedIn) */}
         <meta property="og:title" content="#1 W2C Italiano" />
