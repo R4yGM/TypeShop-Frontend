@@ -1,11 +1,10 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Suspense } from 'react';
+import {
+  Container
+} from 'react-bootstrap';
 import { formatCurrencry } from '../utils/helper';
 import { ReviewTypes } from '../utils/interfaces';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn, MDBRipple, MDBIcon } from 'mdb-react-ui-kit';
-import { SiFoodpanda } from 'react-icons/si';
-import { AiOutlineLink } from 'react-icons/ai';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBBtn,MDBSpinner } from 'mdb-react-ui-kit';
 export type Product = {
   _id: number | string;
   name: string;
@@ -79,21 +78,28 @@ const ProductCard = ({ product }: Props) => {
 
     <MDBCard style={cardStyle} className='w-75 h-75 my-3 rounded hover-shadow hover-zoom zoom'>
   <div style={{ position: 'relative' }}>
-  <a href={`/products/${product._id}`} target='_blank'>
-      <MDBCardImage
-        src={product.image}
-        fluid
-        className='w-100 rounded'
-        style={{
-          borderTopLeftRadius: '15px',
-          borderTopRightRadius: '15px',
-          objectFit: 'cover', // Imposta l'objectFit su 'cover'
-          width: '100%',
-          height: '30vh', 
-        }}
-      />
-      
-      </a>
+  <Suspense fallback={  
+        <Container className='mt-5 d-flex align-items-center justify-content-center' style={{ minHeight: '70vh' }}>
+          <MDBSpinner grow>
+            <span className='visually-hidden'>Loading</span>
+          </MDBSpinner>  <span className='ms-3'>Loading</span>
+        </Container>}>
+          <a href={`/products/${product._id}`} target='_blank'>
+            <MDBCardImage
+              src={product.image}
+              alt='Immagine del prodotto'
+              fluid
+              className='w-100 rounded'
+              style={{
+                borderTopLeftRadius: '15px',
+                borderTopRightRadius: '15px',
+                objectFit: 'cover',
+                width: '100%',
+                height: '30vh',
+              }}
+            />
+          </a>
+        </Suspense>
     </div>
     <MDBCardBody className='pb-0'>
       <div className='d-flex justify-content-between'>
@@ -138,7 +144,7 @@ const ProductCard = ({ product }: Props) => {
         className="w-full pandabuy"
         color='success'
       >
-        View on pandabuy
+        Vai su pandabuy
       </MDBBtn>
     </a>
   </div>

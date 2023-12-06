@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense  } from 'react';
 import {
   Card,
   Col,
@@ -8,7 +8,7 @@ import {
   ListGroup,
   Row,
 } from 'react-bootstrap';
-import { MDBIcon, MDBCardBody, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBIcon, MDBCardBody, MDBBtn, MDBSpinner } from 'mdb-react-ui-kit';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -105,7 +105,6 @@ const ProductDetails = () => {
       <Helmet>
         <title>{product?.name}</title>
         <meta name="description" content={`Check out the details of ${product?.name}`} />
-        <link rel="canonical" href={window.location.href} />
 
         {/* Meta tag per Open Graph (Facebook, LinkedIn) */}
         <meta property="og:title" content={product?.name} />
@@ -129,13 +128,21 @@ const ProductDetails = () => {
         <Container className='mt-7'>
           <Row>
           <Col md={5}>
+          <Suspense fallback={  
+        <Container className='mt-5 d-flex align-items-center justify-content-center' style={{ minHeight: '70vh' }}>
+          <MDBSpinner grow>
+            <span className='visually-hidden'>Loading</span>
+          </MDBSpinner>  <span className='ms-3'>Loading</span>
+        </Container>}>
             <Card className='shadow-4 mb-3'>
               <Image
                 rounded
                 src={product?.image}
                 style={{ objectFit :'cover', width: '100%', height: 'auto', maxWidth: '100%', maxHeight: '590px' }}
+                alt='Immagine del prodotto'
               />
             </Card>
+            </Suspense>
           </Col>
 
             <Col md={5}>

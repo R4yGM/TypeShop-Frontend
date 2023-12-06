@@ -118,7 +118,6 @@ const Products = () => {
         <meta name="twitter:title" content="Products Page" />
         <meta name="twitter:description" content="Cerca prodotti aggiunti quotidianamente validi e fidati già acquistati da altri utenti italiani su pandabuy!" />
         <meta name="twitter:image" content="src/round.png" />
-        <link rel="canonical" href={window.location.href} />
       </Helmet>
       <Container className='mt-5'>
         <Row>

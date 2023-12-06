@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-
-
+import { Container } from 'react-bootstrap';
+import {
+MDBSpinner,
+} from "mdb-react-ui-kit";
 import CartPage from './pages/cart/cart-page';
 //import HomePage from './pages/home';
 const HomePage = lazy(() => import('./pages/home'));
@@ -32,7 +34,13 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Suspense fallback={<div>Caricamento....</div>}>
+        <Route path='/' element={
+        <Suspense fallback={  
+        <Container className='mt-5 d-flex align-items-center justify-content-center' style={{ minHeight: '70vh' }}>
+          <MDBSpinner grow>
+            <span className='visually-hidden'>Loading</span>
+          </MDBSpinner>  <span className='ms-3'>Loading</span>
+        </Container>}>
       <HomePage />
   </Suspense>} />
         
