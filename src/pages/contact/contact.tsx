@@ -36,6 +36,7 @@ const Contact = () => {
     }
   };
 
+  const currentUrl = window.location.href;
 
   return (
     <DefaultLayout>

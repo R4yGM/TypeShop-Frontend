@@ -1,0 +1,1 @@
+import{r as e,c as o,e as d}from"./index.be2511ed.js";var x=r=>e.exports.forwardRef((a,t)=>o("div",{...a,ref:t,className:d(a.className,r)}));const s=e.exports.createContext(null);s.displayName="CardHeaderContext";var l=s;export{l as C,x as d};

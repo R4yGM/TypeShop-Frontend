@@ -113,7 +113,7 @@ const Products = () => {
         <meta property="og:title" content="Cerca prodotti" />
         <meta property="og:description" content="Cerca prodotti aggiunti quotidianamente validi e fidati già acquistati da altri utenti italiani su pandabuy!" />
         <meta property="og:image" content="src/round.png" />
-        <meta property="og:url" content="src/round.png" />
+        <meta property="og:url" content="https://w2c.space/home" />
         <meta name="twitter:card" content="src/round.png" />
         <meta name="twitter:title" content="Products Page" />
         <meta name="twitter:description" content="Cerca prodotti aggiunti quotidianamente validi e fidati già acquistati da altri utenti italiani su pandabuy!" />

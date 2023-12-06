@@ -15,6 +15,7 @@ const HomePage = () => {
     //dispatch(getProducts());
   }, [dispatch]);
   const navigate = useNavigate();
+  const currentUrl = window.location.href;
 
   return (
 <DefaultLayout>
