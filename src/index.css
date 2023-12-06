@@ -260,3 +260,8 @@ section {
   color:white !important;
   background-color: #16192c;
 }
+
+.page-item.active {
+  --x-pagination-focus-color: black !important;
+  --x-pagination-color: white !important;
+}

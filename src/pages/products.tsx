@@ -9,11 +9,13 @@ import {
   FloatingLabel
 } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 import {
   MDBIcon,
+  MDBInputGroup,
 } from "mdb-react-ui-kit";
-import { useParams } from 'react-router-dom';
 import DefaultLayout from '../components/layouts/default-layout';
 import ProductCard from '../components/product-card';
 import Paginate from '../components/UI/paginate';
@@ -24,6 +26,8 @@ import { getFilterProducts } from '../redux/products/search-list';
 
 
 const Products = () => {
+  const history = useNavigate();
+  const location = useLocation();
   const params = useParams();
   const { products, categories, brands, page, pages } = useAppSelector(
     (state) => state.productFilter
@@ -44,27 +48,59 @@ const Products = () => {
   };
 
   useEffect(() => {
-    dispatch(
-      getFilterProducts({ n: pageNumber, b: brand, c: category, q: search })
-    );
-  }, [dispatch, pageNumber, brand, search, category]);
+    const urlSearchParams = new URLSearchParams(location.search);
+    const q = urlSearchParams.get('q') || '';
+    const page = urlSearchParams.get('page') || 1;
+    const brand = urlSearchParams.get('brand') || '';
+    const category = urlSearchParams.get('category') || '';
+
+    dispatch(getFilterProducts({ n: page, b: brand, c: category, q: q }));
+  }, [dispatch, location.search]);
 
   const [isOpen, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   
   const toggleDropdown = () =>{ setOpen(!isOpen);}
   
-  const handleItemClick = (id: any) => {
-    selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
-    if(id == "Tutti"){
-      resetBrand();
-      setOpen(false);
-    }else{
-      setBrand(id);
-      setOpen(false);
-    }
-
+  //set and reset delle categorie
+  const handleCat = (categoria: any) => {
+    setCategory(categoria.target.value)
+    history(`?q=${search}&page=${pageNumber}&brand=${brand}&category=${category}`);
   }
+  const handleResetCat = () => {
+    setCategory("")
+    history(`?q=${search}&page=${pageNumber}&brand=${brand}&category=${category}`);
+  }
+
+  //set brand
+  const handleItemClick = (id: any) => {
+    setSelectedItem(id === selectedItem ? null : id);
+    
+    const newBrand = id === 'Tutti' ? '' : id;
+    
+    setBrand(newBrand);
+  
+    // Verifica se i valori sono cambiati prima di aggiornare l'URL
+    if (brand !== newBrand) {
+      // Aggiorna l'URL con i nuovi parametri
+      history(`?q=${search}&page=${pageNumber}&brand=${newBrand}&category=${category}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      // Esegui la logica di aggiornamento della ricerca o chiama la tua funzione
+      setSearch(e.target.value)
+      //dispatch(getFilterProducts({ n: pageNumber, b: brand, c: category, q: search }));
+      history(`?q=${search}&page=${pageNumber}&brand=${brand}&category=${category}`);
+
+    }
+  };
+  //bottone di ricerca
+  const handleSearchBTN = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      setSearch(document.getElementById("floatingInput").value);
+      history(`?q=${search}&page=${pageNumber}&brand=${brand}&category=${category}`);
+  };
 
 
   return (
@@ -99,7 +135,7 @@ const Products = () => {
         name='category'
         value='Tutti'
         checked={category === ''}
-        onChange={resetCategory}
+        onChange={handleResetCat}
         className='form-check-lg ms-3'   
         
         style={{fontWeight:"200", fontSize:"17px", color:"#332D2D"}}
@@ -111,7 +147,7 @@ const Products = () => {
           name='category'
           value={categorie}
           checked={category === categorie}
-          onChange={() => setCategory(categorie)}
+          onChange={handleCat}
           key={categorie}
           className='form-check-lg ms-3'
           style={{fontWeight:"200", fontSize:"17px"}}
@@ -163,19 +199,24 @@ const Products = () => {
             <Row>
               <div className=' pb-4'>
                 <div className=''>
+                <MDBInputGroup className="mb-3">
                 <FloatingLabel
                     controlId="floatingInput"
-                    label="Search"
-                    className="mb-3"
+                    label="Cerca"
                   >
                   <Form.Control
+                    onKeyDown={handleKeyDown}
                     onChange={(e: any) => setSearch(e.target.value)}
-                    className='me-2 w-100'
+                    className=' w-100'
                     placeholder=''
                     value={search}
                     style={{border:"none"}}
                   />
                   </FloatingLabel>
+                    <Button variant="dark" onClick={handleSearchBTN}>
+                      <i className="bi bi-search"></i>
+                    </Button>
+                  </MDBInputGroup>
                 </div>
                
               </div>
@@ -186,15 +227,40 @@ const Products = () => {
                   <ProductCard product={product} />
                 </Col>
               ))}
+              <style>
+                {`
+                  .page-item.active .page-link {
+                    color: white !important;
+                    background-color: #16192c !important;
+                    border-color: #16192c !important;
+                  }
+                  .page-item {
+                    padding-top:15px;
+                    padding-bottom:15px;
+                  }
+                  .page-link {
+                    font-size: 1.2rem !important;
+                  }
+                `}
+              </style>
+              <Col md={6} className='mt-2'>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Paginate
+                  pages={pages}
+                  page={page}
+                  keyword={keyword ? keyword : ''}
+                  search={search}
+                  brand={brand}
+                  category={category}
+                />
+                </div>
+              </Col>
             </Row>
+            
           </Col>
+
         </Row>
-        <Paginate
-          pages={pages}
-          page={page}
-          keyword={keyword ? keyword : ''}
-          isAdmin={false}
-        />
+
       </Container>
     </DefaultLayout>
   );

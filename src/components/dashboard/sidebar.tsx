@@ -18,6 +18,21 @@ const Sidebar = () => {
     navigate('/login');
   };
 
+  const openNav = () => { 
+    const sidebarElement = document.getElementById("sidebarCollapse");
+
+    if (sidebarElement) {
+      if (sidebarElement.classList.contains("show")) {
+        // Se ha la classe "show", la rimuove
+        sidebarElement.classList.remove("show");
+      } else {
+        // Se non ha la classe "show", la aggiunge
+        sidebarElement.classList.add("show");
+      }
+    }
+
+  }
+
   return (
     <Navbar
       expand='lg'
@@ -34,6 +49,7 @@ const Sidebar = () => {
           aria-controls='sidebarCollapse'
           aria-expanded='false'
           aria-label='Toggle navigation'
+          onClick={openNav}
         >
           <span className='navbar-toggler-icon' />
         </Button>
@@ -42,20 +58,20 @@ const Sidebar = () => {
           to='/'
         >
           <h2 className='logo text-white'>
-            <span className='text-danger'>Type</span> Shop
+            <span className='text-danger'>W2C</span> SPACE
           </h2>
         </Link>
 
         <div className='collapse navbar-collapse' id='sidebarCollapse'>
-          <ul className='navbar-nav'>
+          <ul className='navbar-nav' onClick={openNav}>
             <li className='nav-item  '>
               <Link className='nav-link p-5' to='/dashboard'>
-                <AiFillDashboard className='me-2' size={'1.5rem'} /> Accueil
+                <AiFillDashboard className='me-2' size={'1.5rem'} /> Stats
               </Link>
             </li>
             <li className='nav-item '>
               <Link className='nav-link p-5' to='/dashboard/product-list'>
-                <HiUsers className='me-2' size={'1.5rem'} /> Products
+                <HiUsers className='me-2' size={'1.5rem'} /> Prodotti
               </Link>
             </li>
 
