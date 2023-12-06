@@ -247,7 +247,7 @@ const Header = () => {
                     <Nav.Link
                       as={NavLink}
                       to='/login'
-                      className='btn btn-secondary btn-sm text-white me-3 ms-5 p-3'
+                      className='btn btn-secondary btn-sm text-black me-3 ms-5 p-3'
                     >
                       Login
                     </Nav.Link>
