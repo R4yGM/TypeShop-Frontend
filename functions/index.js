@@ -61,7 +61,7 @@ app.get("/home", function (req, res) {
 
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
-      data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
+      //data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
 
       data = data.replace(
         /Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!/g,
@@ -86,7 +86,7 @@ app.get("/trova", function (req, res) {
 
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
-      data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
+      //data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
 
       data = data.replace(
         /Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!/g,
@@ -110,7 +110,7 @@ app.get("/login", function (req, res) {
 
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
-      data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
+      //data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
 
       data = data.replace(
         /Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!/g,
@@ -134,7 +134,7 @@ app.get("/register", function (req, res) {
 
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
-      data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
+      //data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
 
       data = data.replace(
         /Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!/g,
@@ -169,7 +169,7 @@ app.get("/products/:id", async (req, res) => {
 
       data = data.replace(/<meta property="og:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
       data = data.replace(/<meta property="twitter:url" content="https:\/\/w2c\.space\/" \/>/g, `<meta property="og:url" content="${fullUrl}" />`);
-      data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
+      //data = data.replace(/<link rel="canonical" href="https:\/\/w2c\.space\/" \/>/g, `<link rel="canonical" href="${fullUrl}" />`);
 
       data = data.replace(/https:\/\/w2c\.space\/src\/round\.png/g, productData.image);
       data = data.replace(/Dove trovare prodotti italiani su pandabuy.com. Registrati per sconti fino a 144$. Prodotti aggiunti quotidianamente, stai cercando un prodotto? te lo troviamo noi per te!/g, `${productData.name} - w2c.space`);
