@@ -61,6 +61,8 @@ const ProductCard = ({ product }: Props) => {
         const url = new URL(pandabuyUrl);
         const searchParams = new URLSearchParams(url.search);
         itemId = searchParams.get("id");
+      }else if (product.pandabuy_affiliate.includes("tmall")){
+        itemId = searchParams.get("id");
       }
 
     } catch (error) {
